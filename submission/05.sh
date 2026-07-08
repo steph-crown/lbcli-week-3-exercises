@@ -8,4 +8,4 @@ utxo=$(bitcoin-cli -regtest -rpcwallet=builderswallet decoderawtransaction 01000
 utxo_txid=$(echo "$utxo" | jq -r ".txid")
 recipient=2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP
 
-bitcoin-cli -regtest -rpcwallet=builderswallet -named createpsbt inputs='''[ { "txid": "'$utxo_txid'", "vout": 0  }, { "txid": "'$utxo_txid'", "vout": 1 } ]''' outputs='''{ "'$recipient'": 20000000 }'''
+bitcoin-cli -regtest -rpcwallet=builderswallet -named createpsbt inputs='''[ { "txid": "'$utxo_txid'", "vout": 0  }, { "txid": "'$utxo_txid'", "vout": 1 } ]''' outputs='''{ "'$recipient'": 0.2 }'''
