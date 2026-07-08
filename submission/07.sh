@@ -3,4 +3,4 @@
 
 
 pbst="cHNidP8BAHsCAAAAAhuVpgVRdOxkuC7wW2rvw4800OVxl+QCgezYKHtCYN7GAQAAAAD/////HPTH9wFgyf4iQ2xw4DIDP8t9IjCePWDjhqgs8fXvSIcAAAAAAP////8BigIAAAAAAAAWABTHctb5VULhHvEejvx8emmDCtOKBQAAAAAAAAAA"
-bitcoin-cli -regtest -rpcwallet=builderswallet decodepsbt "$pbst" | jq -r ".tx.vout[].value" | awk '{sum+=$1} END {print sum}'
+bitcoin-cli -regtest -rpcwallet=builderswallet decodepsbt "$pbst" | jq -r ".tx.vout[].value" | awk '{sum+=$1} END {printf "%.0f\n", sum*100000000}'
